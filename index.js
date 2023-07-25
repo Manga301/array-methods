@@ -22,14 +22,14 @@ async function getRandomUser(){
     addData(newUser);
 }
 
-function addData(obj){
+const addData = (obj) => {
     data.push(obj);
 
     updateDOM();
 }
 
 // update DOM
-function updateDOM(providedData = data){
+const updateDOM = (providedData = data) => {
 
     // clear the main div
     main.innerHTML = "<h2><strong>Person</strong> Wealth</h2>";
@@ -60,7 +60,7 @@ function updateDOM(providedData = data){
     - United States Dollar (USD) 
 
 */
-function formatMoney(amount){
+const formatMoney = (amount) => {
     const amountFormat = new Intl.NumberFormat("en-US",{
         style: "currency",
         currency: "EUR"
@@ -70,7 +70,7 @@ function formatMoney(amount){
 }
 
 // double amount of money
-function doubleAmount(){
+const doubleAmount = () => {
     data = data.map(user => {
         return {...user, money: user.money * 2};
     });
